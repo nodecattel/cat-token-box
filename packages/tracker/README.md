@@ -43,6 +43,7 @@ Before you begin, ensure you have the following installed:
 4. Update directory permissions:
    ```bash
    sudo chmod o+w docker/data
+   sudo chown -R $(id -u):$(id -g) docker/data docker/pgdata
    ```
 
 ## Configuration
@@ -72,7 +73,7 @@ Then, update the `UID` and `GID` values in your `.env` file with the numbers ret
 
 1. Start PostgreSQL and Bitcoin node:
    ```bash
-   docker-compose up -d
+   docker compose up -d
    ```
 
 2. Initialize/migrate the database:
@@ -144,12 +145,12 @@ Monitor system resources and adjust these values iteratively to find the optimal
 
 - If services fail to start, check the Docker logs:
   ```bash
-  docker-compose logs
+  docker compose logs
   ```
 
 - For database-related issues, connect to PostgreSQL directly:
   ```bash
-  docker-compose exec postgres psql -U your_username -d your_database
+  docker compose exec postgres psql -U your_username -d your_database
   ```
 
 ## Updating

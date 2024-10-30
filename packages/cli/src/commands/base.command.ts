@@ -8,7 +8,7 @@ export interface BaseCommandOptions {
   config?: string;
   network?: string;
   tracker?: string;
-  dataDir?: string;
+  datadir?: string;
   rpcurl?: string;
   rpcusername?: string;
   rpcpassword?: string;
@@ -76,9 +76,9 @@ export abstract class BaseCommand extends CommandRunner {
       });
     }
 
-    if (options.dataDir) {
+    if (options.datadir) {
       Object.assign(cliConfig, {
-        dataDir: options.dataDir,
+        dataDir: options.datadir,
       });
     }
 
